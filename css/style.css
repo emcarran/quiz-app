@@ -43,6 +43,10 @@ ul {
     text-align: center;
 }
 
+h1 {
+    padding-bottom: 1rem;
+}
+
 
 /* Header styles
 (all the styles inside the < header > or < nav > tags)
@@ -106,6 +110,13 @@ ul {
     padding-right: 150px;
     min-width: 1040px;
 }*/
+
+#choices {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
 
 #choices li {
     display: block;
