@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!--<div class="background"> </div>adding more text-->
+    <header class="banner-section">
+        <h1 class="heading">
+        <span>World Facts</span>
+        </h1>
+    </header>
+
+    <section class="start-section" style="display: block;">
+        <h2 class="text"> Take this quiz and see how many interesting world facts you already know!</h2>
+        <button class="start-button" id="startQuizButton">Start</button>
+    </section>
+
+    <section class="quiz-section" style="display: block;">
+        <div id="question-wrapper">
+            <h1 class="text" id="question">What is the largest continent on planet Earth?</h1>
+
+            <ul id="choices">
+                <li>
+                    <input class="option" type="radio" value="0" name="option">
+                    <span class="answer">Africa</span>
+                </li>
+                <li>
+                    <input class="option" type="radio" value="0" name="option">
+                    <span class="answer">Asia</span>
+                </li>
+                <li>
+                    <input class="option" type="radio" value="0" name="option">
+                    <span class="answer">America</span>
+                </li>
+                <li>
+                    <input class="option" type="radio" value="0" name="option">
+                    <span class="answer">Australia</span>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="question-number" id="questionNum">Question 1 of 10</div>
+    </section>
+
+    <section class="result-section" style="display: block;">
+        <h2 class="text">Final Score</h2>
+        <h3 class="text" id="finalScore">10/10</h3>
+        <div id="result-msg"></div>
+        ;
+        <button class="start-button" id="tryagain">Try Again</button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
