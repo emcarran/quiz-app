@@ -20,7 +20,7 @@ $(document).ready(function () {
             question: "How many countries are there on the planet?",
             choices: ["78", "116", "154", "196"],
             correct: 3,
-            correctDetails: "There are 196 countries, including Taiwan."
+            correctDetails: "There are 196 countries, including Taiwan. Although Taiwan operates as an independent country, many countries (including the U.S.) do not officially recognize it as one."
                 },
 
         {
@@ -61,14 +61,14 @@ $(document).ready(function () {
             question: "What country has the most spoken languages in the world?",
             choices: ["Indonesia", "Nigeria", "Papua New Guinea", "India"],
             correct: 2,
-            correctDetails: "Although Papua New Guinea has three official languages, Hiri Motu, Tok Pisin, there are 820 spoken languages."
+            correctDetails: "Although Papua New Guinea has only three official languages, Hiri Motu, Tok Pisin and English, there are 820 spoken languages."
         },
 
         {
             question: "Which country has the greates bio-diversity of flora and fauna on Earth?",
             choices: ["Madagascar", "Brazil", "Indonesia", "United States"],
             correct: 1,
-            correctDetails: "Brazil has more than....."
+            correctDetails: "Brazil has the highest number of species of known mammals and freshwater fish, and with more than 50,000 species of trees and bushes, it takes first place in plant diversity."
                 }
 
             ];
@@ -111,18 +111,23 @@ $(document).ready(function () {
 
     /*--- Show quiz questions ---*/
     $(".quiz-section").on("click", ".option", function () {
-            var answer = $("input[class='option']:checked").val();
-            var correctAnswer = questions[questionNum].correct;
+        var answer = $("input[class='option']:checked").val();
+        var correctAnswer = questions[questionNum].correct;
 
-            if (answer == correctAnswer) {
-                correctTotal++;
-            }
+        if (answer == correctAnswer) {
+            correctTotal++;
+        }
 
-            //quiz is finished, show result-section
-            if ((questionNum + 1) == questionTotal) {
-                $("#finalScore").text(correctTotal + "/" + questionTotal);
-                //if (finalScore == 10) {
-                $(this).text("You've got 10 out of 10, " + feedBack);
+        $("#result-msg").append("<h3>Q: " + questions[questionNum].question + "</h3>");
+        $("#result-msg").append("<h4>A: " + questions[questionNum].correctDetails + "</h4>");
+
+
+        //quiz is finished, show result-section
+        if ((questionNum + 1) == questionTotal) {
+            $("#finalScore").text(correctTotal + "/" + questionTotal);
+
+            if (correctTotal == questionTotal) {
+                $("#result-msg").append(feedBack);
             }
 
             $(".start-button").show();
@@ -138,14 +143,14 @@ $(document).ready(function () {
 
     });
 
-/*--- Load the start section from the result section ---*/
-$(".result-section").on("click", "#tryagain", function () {
-    $(".start-section").show();
-    $(".quiz-section").hide();
-    $(".result-section").hide();
-    //reset variables to start quiz again
-    questionNum = 0;
-    correctTotal = 0;
-});
+    /*--- Load the start section from the result section ---*/
+    $(".result-section").on("click", "#tryagain", function () {
+        $(".start-section").show();
+        $(".quiz-section").hide();
+        $(".result-section").hide();
+        //reset variables to start quiz again
+        questionNum = 0;
+        correctTotal = 0;
+    });
 
 });
